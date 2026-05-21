@@ -1,7 +1,7 @@
 import streamlit as st
 import sys
 import os
-sys.path.append("E:\\graph-rag-project")
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
@@ -365,7 +365,7 @@ def create_question_graph(driver, question):
         }
         """)
 
-        html_path = "E:\\graph-rag-project\\question_graph.html"
+        html_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "question_graph.html")
         net.save_graph(html_path)
         return html_path
 
